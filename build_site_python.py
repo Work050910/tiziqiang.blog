@@ -129,4 +129,7 @@ Sitemap: https://tiziqiang.blog/sitemap.xml
 with open('_site/robots.txt', 'w', encoding='utf-8') as fp:
     fp.write(robots_txt)
 
+# Sync to both _site and site for full Cloudflare Pages directory compatibility
+shutil.copytree('_site', 'site', dirs_exist_ok=True)
+
 print(f"Compilation Complete! Built {compiled_count} pages and generated sitemap.xml with {len(sitemap_urls)} URLs.")

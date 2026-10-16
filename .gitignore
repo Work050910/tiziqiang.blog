@@ -7,6 +7,7 @@ Thumbs.db
 
 # Build output
 _site/
+site/
 
 # Logs
 *.log
