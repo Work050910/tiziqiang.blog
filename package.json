@@ -1,0 +1,17 @@
+{
+  "name": "tiziqiang.blog",
+  "version": "1.0.0",
+  "description": "梯子墙静态推荐站 (Eleventy + Tailwind)",
+  "scripts": {
+    "build:css": "tailwindcss -i src/css/input.css -o src/css/style.css --minify",
+    "build:11ty": "eleventy",
+    "build": "python3 build_site_python.py",
+    "start": "node serve.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.19",
+    "tailwindcss": "^4.3.3"
+  }
+}

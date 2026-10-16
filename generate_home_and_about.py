@@ -1,0 +1,246 @@
+import json
+
+home_content = """---
+layout: base.njk
+title: "梯子墙 ｜ 2026梯子推荐结合好用的梯子与梯子工具讯息"
+description: "梯子墙：2026梯子推荐结合好用的梯子与梯子工具讯息。面向关注好用的梯子、翻墙梯子、梯子工具和梯子推荐资料的中文读者的客观静态推荐博客。"
+permalink: "/"
+---
+
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <!-- Hero Section -->
+  <section class="py-12 md:py-16 text-center max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-cyan-50 border border-cyan-200 rounded-full text-xs font-bold text-cyan-800 mb-6 shadow-xs">
+      <span>🛡️</span> 服务资料透明 ｜ 套餐规则清楚 ｜ 选择依据可核对 ｜ 2026 最新收录
+    </div>
+    <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
+      梯子墙：2026梯子推荐<br class="hidden sm:inline" />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600">结合好用的梯子与梯子工具讯息</span>
+    </h1>
+    <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+      权威整理全网 28 款主流梯子服务公开数据、套餐资费梯度、线路架构特点与专属优惠码。以客观资料打破信息不对称，助您理性选配适合自己的网络工具。
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <a href="/airport-recommend/" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold rounded-2xl shadow-md shadow-cyan-600/20 transition text-base">
+        🚀 查看机场推荐评测长文（28家全景排行）
+      </a>
+      <a href="/how-to-choose/" class="w-full sm:w-auto px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-semibold rounded-2xl border border-slate-300 shadow-xs transition text-base">
+        📖 梯子怎么选新手避坑指南
+      </a>
+    </div>
+  </section>
+
+  <!-- Core Topics Feature Grid -->
+  <section class="my-12">
+    <div class="text-center mb-10">
+      <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2">全站核心资料导航分类</h2>
+      <p class="text-sm text-slate-500">围绕读者最关心的梯子工具评测、选型标准与资料核对展开论述</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <a href="/good-ladder/" class="p-6 bg-white border border-slate-200 hover:border-cyan-400 hover:shadow-md rounded-2xl transition group flex flex-col justify-between shadow-xs">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-4 font-black text-lg border border-cyan-100">01</div>
+          <h3 class="text-lg font-black text-slate-900 group-hover:text-cyan-600 transition mb-2">好用的梯子</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            涵盖 14 篇关于优质梯子挑选标准、BGP 入口优化、晚高峰稳定性与真实性价比的深度剖析。
+          </p>
+        </div>
+        <span class="text-xs font-bold text-cyan-600 flex items-center gap-1">浏览栏目文章 →</span>
+      </a>
+
+      <a href="/ladder-guide/" class="p-6 bg-white border border-slate-200 hover:border-cyan-400 hover:shadow-md rounded-2xl transition group flex flex-col justify-between shadow-xs">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-4 font-black text-lg border border-cyan-100">02</div>
+          <h3 class="text-lg font-black text-slate-900 group-hover:text-cyan-600 transition mb-2">翻墙梯子</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            包含 12 篇关于服务商公开资料真伪核验、IPLC 专线实测原理与防跑路检查清单的实用指南。
+          </p>
+        </div>
+        <span class="text-xs font-bold text-cyan-600 flex items-center gap-1">浏览栏目文章 →</span>
+      </a>
+
+      <a href="/ladder-tools/" class="p-6 bg-white border border-slate-200 hover:border-cyan-400 hover:shadow-md rounded-2xl transition group flex flex-col justify-between shadow-xs">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-4 font-black text-lg border border-cyan-100">03</div>
+          <h3 class="text-lg font-black text-slate-900 group-hover:text-cyan-600 transition mb-2">梯子工具</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            汇集 12 篇关于流量重置规则、客户端兼容性、测速变量与技术架构演进的干货知识。
+          </p>
+        </div>
+        <span class="text-xs font-bold text-cyan-600 flex items-center gap-1">浏览栏目文章 →</span>
+      </a>
+
+      <a href="/how-to-choose/" class="p-6 bg-white border border-slate-200 hover:border-cyan-400 hover:shadow-md rounded-2xl transition group flex flex-col justify-between shadow-xs">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600 mb-4 font-black text-lg border border-cyan-100">04</div>
+          <h3 class="text-lg font-black text-slate-900 group-hover:text-cyan-600 transition mb-2">梯子怎么选</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">
+            提供 12 篇针对学生、外贸团队、科研学术与影音爱好者的多维度预算决策与选型模型。
+          </p>
+        </div>
+        <span class="text-xs font-bold text-cyan-600 flex items-center gap-1">浏览栏目文章 →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Top 5 Recommended Airports Showcase -->
+  <section class="my-16 p-6 sm:p-8 bg-white border border-slate-200 rounded-3xl shadow-xs">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4 border-b border-slate-100 pb-4">
+      <div>
+        <h2 class="text-2xl font-black text-slate-900 mb-1">年度核心推荐梯队前五名</h2>
+        <p class="text-xs sm:text-sm text-slate-500">综合线路质量、晚高峰连通稳定性、客服支持与性价比评估</p>
+      </div>
+      <a href="/airport-recommend/" class="text-sm font-bold text-cyan-600 hover:underline flex items-center gap-1">
+        查看完整 28 家梯子详细测评长文 →
+      </a>
+    </div>
+
+    <!-- Vertical Parallel Stack (并列单列展示，一列逐个纵向排列) -->
+    <div class="flex flex-col space-y-4">
+      <div class="p-5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200 hover:border-cyan-300 transition shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <span class="text-xs text-white bg-cyan-600 px-3 py-1.5 rounded-xl font-bold font-mono shrink-0">TOP 01</span>
+          <div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-lg font-black text-slate-900">全球云</h3>
+              <span class="text-xs px-2 py-0.5 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-md font-medium">多出口 IP · TikTok 优化</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">20 元/月起 · 50+ 全球多国节点，ChatGPT/Claude 跨境开发与短视频矩阵首选方案</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+          <code class="text-cyan-700 font-mono font-bold text-xs bg-white px-2.5 py-1 rounded-lg border border-slate-200">qq88 (8折)</code>
+          <a href="/airport/quanqiuyun/" class="text-xs px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg border border-slate-200 transition">测评详情</a>
+          <a href="https://hueue09.gcvipaff.com/#/?code=z8U9aaa4" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-xs px-4 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition">直达官网</a>
+        </div>
+      </div>
+
+      <div class="p-5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200 hover:border-cyan-300 transition shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <span class="text-xs text-white bg-cyan-600 px-3 py-1.5 rounded-xl font-bold font-mono shrink-0">TOP 02</span>
+          <div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-lg font-black text-slate-900">飞猫云</h3>
+              <span class="text-xs px-2 py-0.5 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-md font-medium">IEPL 专线 · 香港大带宽</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">7 元/月起（学生版年付折算） · 晚高峰实测表现极其稳定，自带新手小白一键客户端</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+          <code class="text-cyan-700 font-mono font-bold text-xs bg-white px-2.5 py-1 rounded-lg border border-slate-200">flycat888</code>
+          <a href="/airport/flycat/" class="text-xs px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg border border-slate-200 transition">测评详情</a>
+          <a href="https://quanqiu.flycatvipaff.cc/#/?code=7ZOeVmNS" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-xs px-4 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition">直达官网</a>
+        </div>
+      </div>
+
+      <div class="p-5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200 hover:border-cyan-300 transition shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <span class="text-xs text-white bg-cyan-600 px-3 py-1.5 rounded-xl font-bold font-mono shrink-0">TOP 03</span>
+          <div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-lg font-black text-slate-900">暮光加速</h3>
+              <span class="text-xs px-2 py-0.5 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-md font-medium">高峰吞吐 · 4K/8K 影音</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">20 元/月起 · 晚高峰流畅回放 YouTube 4K 视频跑满带宽，全流媒体与 AI 解锁利器</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+          <code class="text-cyan-700 font-mono font-bold text-xs bg-white px-2.5 py-1 rounded-lg border border-slate-200">mm88 (8折)</code>
+          <a href="/airport/muguang/" class="text-xs px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg border border-slate-200 transition">测评详情</a>
+          <a href="https://quanqi12.twilightaff.com/#/?code=beAVqNPf" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-xs px-4 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition">直达官网</a>
+        </div>
+      </div>
+
+      <div class="p-5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200 hover:border-cyan-300 transition shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <span class="text-xs text-white bg-cyan-600 px-3 py-1.5 rounded-xl font-bold font-mono shrink-0">TOP 04</span>
+          <div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-lg font-black text-slate-900">大佬云</h3>
+              <span class="text-xs px-2 py-0.5 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-md font-medium">清晰阶梯 · 专线集群</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">20 元/月起 · 120GB 至 1500GB 经典四档流量阶梯，兼顾个人轻度到团队重度使用</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+          <code class="text-cyan-700 font-mono font-bold text-xs bg-white px-2.5 py-1 rounded-lg border border-slate-200">dly88</code>
+          <a href="/airport/dalaoyun/" class="text-xs px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg border border-slate-200 transition">测评详情</a>
+          <a href="https://adcua9104.dalaoyunaff.com/#/?code=J6GqQqk8" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-xs px-4 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition">直达官网</a>
+        </div>
+      </div>
+
+      <div class="p-5 bg-slate-50 hover:bg-white rounded-2xl border border-slate-200 hover:border-cyan-300 transition shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <span class="text-xs text-white bg-cyan-600 px-3 py-1.5 rounded-xl font-bold font-mono shrink-0">TOP 05</span>
+          <div>
+            <div class="flex items-center gap-3">
+              <h3 class="text-lg font-black text-slate-900">微风网络</h3>
+              <span class="text-xs px-2 py-0.5 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-md font-medium">轻量 IEPL · 200GB起步</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">25 元/月起 · 自研与开源订阅双轨兼容，轻度查阅、备用防失联的高性价比专线选择</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 shrink-0 self-end sm:self-center">
+          <code class="text-cyan-700 font-mono font-bold text-xs bg-white px-2.5 py-1 rounded-lg border border-slate-200">breezenet88</code>
+          <a href="/airport/breezenet/" class="text-xs px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg border border-slate-200 transition">测评详情</a>
+          <a href="https://edp01.breezenetaff.com/#/?code=vxDUI8kY" target="_blank" rel="sponsored nofollow noopener noreferrer" class="text-xs px-4 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white font-bold rounded-lg transition">直达官网</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+"""
+
+about_content = """---
+layout: base.njk
+title: "关于本站 ｜ 梯子墙 (tiziqiang.blog) 简介与客观中立性声明"
+description: "梯子墙专注于梯子工具与翻墙梯子服务资料客观梳理，倡导透明规则、理性选型与合规使用。"
+permalink: "/about/"
+---
+
+<div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+  <header class="mb-8 border-b border-slate-200 pb-6 text-center">
+    <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mb-3">关于梯子墙 (tiziqiang.blog)</h1>
+    <p class="text-slate-500 text-sm">客观 · 透明 · 严谨的中文梯子服务资料聚合与科普博客</p>
+  </header>
+
+  <div class="prose max-w-none text-slate-700 text-sm sm:text-base space-y-6 leading-relaxed bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xs">
+    <p>
+      <strong>梯子墙</strong>（<a href="https://tiziqiang.blog" class="text-cyan-600 font-semibold">tiziqiang.blog</a>）创立的初衷，是为了破除中文互联网中充斥的大量虚假测速、过度营销与夸大宣传。我们深知读者在寻找<strong>好用的梯子</strong>、<strong>翻墙梯子</strong>或<strong>梯子工具</strong>时，常面临信息不对称、隐性扣费以及充值后服务缩水等困扰。
+    </p>
+
+    <h2 class="text-xl font-black text-slate-900 border-l-4 border-cyan-600 pl-3">我们的收录与测评原则</h2>
+    <ul class="list-disc list-inside space-y-2 text-slate-600">
+      <li><strong>拒绝绝对保证：</strong>网络环境动态多变，没有任何服务商能做出“永久稳定、绝不断流”的承诺。我们绝不使用此类误导性词汇。</li>
+      <li><strong>事实资料可查验：</strong>所有呈现的套餐价格、流量倍率、协议架构均核验自当前公开控制台与结算页面。</li>
+      <li><strong>利益关系公开透明：</strong>凡含有推广返利的外链均如实告知读者，绝不为佣金而掩盖服务商的真实缺陷。</li>
+    </ul>
+
+    <h2 class="text-xl font-black text-slate-900 border-l-4 border-cyan-600 pl-3">网络安全与合规声明</h2>
+    <p class="text-slate-600">
+      本站不运营、不提供任何翻墙技术节点，亦不销售任何软硬件设备。全部内容旨在协助科研从业者、跨国贸易工作者及海外资讯检索者理解网络底层架构知识。我们郑重提醒广大读者严格遵守所在地法律法规，理性合规使用网络工具。
+    </p>
+
+    <div class="mt-8 p-6 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <div class="font-bold text-slate-900 text-sm">阅读 28 家梯子服务横向评测长文</div>
+        <div class="text-xs text-slate-500">直达全站核心的机场推荐聚合中心</div>
+      </div>
+      <a href="/airport-recommend/" class="px-5 py-2.5 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-xl text-xs transition shadow-xs">
+        进入机场推荐长文 →
+      </a>
+    </div>
+  </div>
+</div>
+"""
+
+with open("src/index.njk", "w", encoding="utf-8") as f:
+    f.write(home_content)
+
+with open("src/about/index.njk", "w", encoding="utf-8") as f:
+    f.write(about_content)
+
+print("Updated home page title and hero text successfully!")

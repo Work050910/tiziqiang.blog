@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="https://tiziqiang.blog{{ permalink }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "梯子墙",
+    "url": "https://tiziqiang.blog",
+    "description": "好用的梯子、梯子工具与梯子推荐资料库"
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-white">
+
+  <!-- Top Navigation Header (Clean Light Theme) -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-md shadow-cyan-500/20 p-1 group-hover:scale-105 transition">
+          <img src="/icon.svg" alt="梯子墙Logo" class="w-7 h-7">
+        </div>
+        <span class="text-xl font-black text-slate-900 tracking-tight group-hover:text-cyan-600 transition">
+          梯子墙<span class="text-xs font-mono text-cyan-600 font-semibold ml-1">.blog</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden xl:flex items-center space-x-5 text-sm font-medium text-slate-600">
+        <a href="/" class="hover:text-cyan-600 transition {% if permalink == '/' %}text-cyan-600 font-bold{% endif %}">首页</a>
+        <a href="/airport-recommend/" class="px-3 py-1.5 bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-lg hover:bg-cyan-100 transition font-bold shadow-xs">
+          🔥 机场推荐
+        </a>
+        <a href="/good-ladder/" class="hover:text-cyan-600 transition {% if '/good-ladder/' in permalink %}text-cyan-600 font-bold{% endif %}">好用的梯子</a>
+        <a href="/ladder-guide/" class="hover:text-cyan-600 transition {% if '/ladder-guide/' in permalink %}text-cyan-600 font-bold{% endif %}">翻墙梯子</a>
+        <a href="/ladder-tools/" class="hover:text-cyan-600 transition {% if '/ladder-tools/' in permalink %}text-cyan-600 font-bold{% endif %}">梯子工具</a>
+        <a href="/how-to-choose/" class="hover:text-cyan-600 transition {% if '/how-to-choose/' in permalink %}text-cyan-600 font-bold{% endif %}">梯子怎么选</a>
+        <a href="/service/" class="hover:text-cyan-600 transition {% if '/service/' in permalink %}text-cyan-600 font-bold{% endif %}">服务资料</a>
+        <a href="/faq/" class="hover:text-cyan-600 transition {% if '/faq/' in permalink %}text-cyan-600 font-bold{% endif %}">常见问题</a>
+        <a href="/about/" class="hover:text-cyan-600 transition {% if '/about/' in permalink %}text-cyan-600 font-bold{% endif %}">关于本站</a>
+      </nav>
+
+      <!-- Right Side: Search Box & Mobile Menu Button -->
+      <div class="flex items-center space-x-3">
+        <!-- Interactive Search Bar -->
+        <div class="relative" id="searchContainer">
+          <div class="relative flex items-center">
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="搜索全站文章/机场..." 
+              autocomplete="off"
+              class="w-36 sm:w-56 md:w-64 pl-8 pr-3 py-1.5 text-xs bg-slate-100 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:bg-white focus:ring-1 focus:ring-cyan-500 transition"
+            >
+            <span class="absolute left-2.5 text-slate-400 text-xs pointer-events-none">🔍</span>
+          </div>
+
+          <!-- Live Search Dropdown -->
+          <div id="searchResults" class="hidden absolute right-0 mt-2 w-80 sm:w-96 max-h-96 overflow-y-auto bg-white border border-slate-200 rounded-2xl shadow-xl p-2 z-50">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="xl:hidden p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden xl:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 text-sm font-medium">
+      <a href="/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">首页</a>
+      <a href="/airport-recommend/" class="block px-3 py-2 rounded-lg bg-cyan-50 text-cyan-700 font-bold border border-cyan-200">🔥 机场推荐 (聚合中心)</a>
+      <a href="/good-ladder/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">好用的梯子</a>
+      <a href="/ladder-guide/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">翻墙梯子</a>
+      <a href="/ladder-tools/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">梯子工具</a>
+      <a href="/how-to-choose/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">梯子怎么选</a>
+      <a href="/service/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">服务资料</a>
+      <a href="/faq/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">常见问题 (FAQ 100)</a>
+      <a href="/about/" class="block px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-cyan-600">关于本站</a>
+    </div>
+  </header>
+
+  <!-- Main Content Slot -->
+  <main class="flex-grow">
+    {{ content | safe }}
+  </main>
+
+  <!-- Site Footer (Clean Light Theme) -->
+  <footer class="bg-white border-t border-slate-200 mt-16 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-2 text-slate-900 font-bold text-base mb-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
+            <span>梯子墙 (tiziqiang.blog)</span>
+          </div>
+          <p class="leading-relaxed text-slate-600 text-xs">
+            面向中文读者的好用的梯子、翻墙梯子、梯子工具与梯子推荐客观资料站。我们恪守透明、不夸大宣传、事实可核对的测评标准。
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-slate-900 font-semibold text-xs uppercase tracking-wider mb-3">核心导航</h4>
+          <ul class="space-y-2">
+            <li><a href="/airport-recommend/" class="hover:text-cyan-600 transition">机场推荐核心中心页</a></li>
+            <li><a href="/good-ladder/" class="hover:text-cyan-600 transition">好用的梯子</a></li>
+            <li><a href="/ladder-guide/" class="hover:text-cyan-600 transition">翻墙梯子</a></li>
+            <li><a href="/ladder-tools/" class="hover:text-cyan-600 transition">梯子工具</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-slate-900 font-semibold text-xs uppercase tracking-wider mb-3">资料与支持</h4>
+          <ul class="space-y-2">
+            <li><a href="/how-to-choose/" class="hover:text-cyan-600 transition">梯子怎么选指南</a></li>
+            <li><a href="/service/" class="hover:text-cyan-600 transition">梯子服务资料</a></li>
+            <li><a href="/faq/" class="hover:text-cyan-600 transition">100题常见问题 (FAQ)</a></li>
+            <li><a href="/about/" class="hover:text-cyan-600 transition">关于本站与编辑部</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-slate-900 font-semibold text-xs uppercase tracking-wider mb-3">页脚关键词</h4>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-600 rounded">好用的梯子推荐</span>
+            <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-600 rounded">翻墙梯子资料</span>
+            <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-600 rounded">梯子工具说明</span>
+            <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-600 rounded">梯子推荐指南</span>
+            <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 text-slate-600 rounded">免责声明</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          © 2026 tiziqiang.blog 梯子墙 ｜ 保留所有权利
+        </div>
+        <div class="text-slate-400 text-[11px]">
+          声明：本站仅作技术科普与公开资料归档，严禁用于任何违反所在地法律之行为。
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Instant Search Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Mobile menu toggle
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Live search logic
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+      
+      let searchData = [];
+      try {
+        const res = await fetch('/search-data.json');
+        if (res.ok) searchData = await res.json();
+      } catch (err) {
+        console.error("Failed to load search index", err);
+      }
+
+      if (input && results) {
+        input.addEventListener('input', (e) => {
+          const val = e.target.value.trim().toLowerCase();
+          if (!val) {
+            results.classList.add('hidden');
+            results.innerHTML = '';
+            return;
+          }
+
+          const matched = searchData.filter(item => 
+            item.title.toLowerCase().includes(val) || 
+            (item.desc && item.desc.toLowerCase().includes(val))
+          ).slice(0, 8);
+
+          if (matched.length === 0) {
+            results.innerHTML = '<div class="p-4 text-center text-xs text-slate-400">未找到匹配文章</div>';
+          } else {
+            results.innerHTML = matched.map(m => `
+              <a href="${m.url}" class="block p-2.5 hover:bg-slate-100 rounded-xl transition">
+                <div class="text-xs font-bold text-slate-900 mb-0.5 line-clamp-1">${m.title}</div>
+                <div class="text-[11px] text-slate-500 line-clamp-1">${m.desc}</div>
+              </a>
+            `).join('');
+          }
+          results.classList.remove('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!input.contains(e.target) && !results.contains(e.target)) {
+            results.classList.add('hidden');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

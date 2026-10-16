@@ -1,0 +1,7 @@
+node_modules/
+_site/
+.git/
+*.py
+*.js
+*.md
+package*.json
